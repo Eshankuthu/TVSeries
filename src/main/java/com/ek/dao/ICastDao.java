@@ -14,7 +14,10 @@ public interface ICastDao {
 	
 	public Cast findCast(int id);
 	
-	public void delete(Cast cast);
+	public void delete(int castId);
+	
+	public Cast getCastbyId(int castId);
+	
 	
 
 }

@@ -39,9 +39,11 @@ public class CastService {
 		return castDao.findCast(id);
 	}
 	
-	public void delete(Cast cast){
-		castDao.delete(cast);
-		
+	public void delete(int castId){
+		castDao.delete(castId);
+	}
+	public Cast getCastbyId(int castId){
+		return castDao.getCastbyId(castId);
 	}
 	
 

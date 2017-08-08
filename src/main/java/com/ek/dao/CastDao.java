@@ -22,6 +22,7 @@ public class CastDao implements ICastDao{
 	public CastDao() {
 	}
 
+	@SuppressWarnings("static-access")
 	@Autowired
 	public CastDao(SessionFactory sf) {
 		this.sessionFactory = sf;
@@ -53,7 +54,16 @@ public class CastDao implements ICastDao{
 		Cast cast = (Cast) session.get(Cast.class, id);
 		return cast;
 	}
+	
 
+	@Transactional
+	public Cast getCastbyId(int castId) {
+		Session session = sessionFactory.getCurrentSession();
+		Cast cast = (Cast)session.get(Cast.class,castId);
+		return cast;
+	}
+
+	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Cast> findAll() {
 		session = sessionFactory.getCurrentSession();
@@ -62,9 +72,16 @@ public class CastDao implements ICastDao{
 	}
 
 	@Transactional
-	public void delete(Cast cast) {
+	public void delete(int castId) {
 		session = sessionFactory.getCurrentSession();
+		Cast cast = (Cast) session.get(Cast.class, castId);
+		if(cast != null){
 		session.delete(cast);
-	}
+	}}
+
+	
+
+	
+	
 
 }
