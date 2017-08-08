@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.ek.entity.Cast;
 
 @Repository
-public class CastDao {
+public class CastDao implements ICastDao{
 
 	private Session session;
 	private static SessionFactory sessionFactory;

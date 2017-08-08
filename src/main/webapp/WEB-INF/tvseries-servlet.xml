@@ -19,8 +19,14 @@
 	<ctx:component-scan base-package="com.ek" />
 	<mvc:annotation-driven />
 
-	
 
+
+
+<bean id="castDAO" class="com.ek.dao.CastDao" >
+<constructor-arg ref="sessionFactory"/>
+</bean>
+	<bean id="castController" class="com.ek.controller.CastController" />
+	<bean id="castService" class="com.ek.service.CastService" />
  	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
